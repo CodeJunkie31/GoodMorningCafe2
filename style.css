@@ -1,0 +1,156 @@
+/*The navigation bar*/
+
+/* Resetting default margin and padding */
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+/* Styling navigation section */
+#nav-- {
+    background-color: white;
+    padding: 10px 20px; /* Adjust padding as needed */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Adding a shadow */
+}
+
+/* Styling logo */
+.logo--container {
+    display: inline-block; /* To align the logo horizontally with other elements */
+}
+
+#logo {
+    max-width: 100px; /* Adjust as needed */
+    height: auto; /* Maintain aspect ratio */
+}
+/*Animated logo*/
+/* Styling for the section */
+/* Style for the subsection container */
+#subsection {
+    background-color: #ffcc00; /* Set background color to yellow */
+    position: relative; /* Ensure relative positioning for absolute elements */
+    overflow: hidden; /* Hide overflow content */
+}
+
+/* Style for the animated text container */
+.animated-text {
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    font-family: 'Roboto', sans-serif; /* Example of using Google Fonts */
+    font-size: 36px;
+    color: white;
+    padding: 20px;
+}
+
+/* Animation for curving text */
+.animated-text::before {
+    content: 'Good Morning Cafe'; /* Text to be animated */
+    position: absolute;
+    top: 100%; /* Move text out of sight initially */
+    animation: curveText 5s linear infinite; /* Animation settings */
+}
+
+/* Animation keyframes for curving text */
+@keyframes curveText {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+}
+
+/* Style for logo image */
+.animated-text img {
+    opacity: 0; /* Initially hidden */
+    animation: fadeInImage 0.5s ease-in forwards; /* Animation settings */
+    max-width: 80%; /* Make sure the image doesn't exceed its container */
+    height: auto; /* Maintain aspect ratio */
+}
+
+/* Fade-in animation keyframes for logo image */
+@keyframes fadeInImage {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Style for text that fades in letter by letter */
+.fade-in-text {
+    opacity: 0; /* Initially hidden */
+    animation: fadeInText 0.4s forwards; /* Animation settings */
+}
+
+/* Fade-in animation keyframes for text */
+@keyframes fadeInText {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Media query for responsiveness */
+@media screen and (max-width: 768px) {
+    .animated-text {
+        font-size: 24px; /* Adjust font size for smaller screens */
+    }
+}
+/*The background image for the introduction*/
+/* Style for the section */
+#background-image {
+    position: relative; /* Ensure relative positioning for absolute elements */
+}
+
+/* Style for the paragraph container */
+.container-paragraph {
+    padding: 30px; /* Add padding for content */
+    position: relative; /* Ensure relative positioning for absolute elements */
+}
+
+/* Style for the paragraph */
+.container-paragraph p {
+    font-family: Unkempt, sans-serif; /* Example of using Google Fonts */
+    font-size: 20px; /* Example font size */
+    line-height: 1.6; /* Example line height */
+    color: #333; /* Example text color */
+}
+
+
+
+/* Media query for responsiveness */
+@media screen and (max-width: 768px) {
+    /* Adjust the width and height of background images for smaller screens */
+    .container-paragraph::before,
+    .container-paragraph::after {
+        width: 100px; /* Adjust width for smaller screens */
+        height: 100px; /* Adjust height for smaller screens */
+    }
+}
+
+/* Image banner */
+.image-banner {
+    overflow: hidden;
+    width: 100%;
+    background-color: #ffcc00;
+}
+
+/* Flexbox container for rows */
+.rows {
+    display: flex;
+    flex-wrap: nowrap; /* Ensure the images don't wrap to the next line */
+    overflow-x: auto; /* Enable horizontal scrolling */
+    scroll-snap-type: x mandatory; /* Ensure each image aligns with the scroll container */
+}
+
+/* Individual image containers */
+.columns {
+    flex: 0 0 auto; /* Ensure equal width for each image container */
+    padding: 5px;
+    scroll-snap-align: start; /* Ensure each image aligns to the start of the scroll container */
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+    .columns {
+        flex-basis: 50%; /* Two images per row on smaller screens */
+    }
+}
+
+@media (max-width: 576px) {
+    .columns {
+        flex-basis: 100%; /* Single image per row on even smaller screens */
+    }
+}
